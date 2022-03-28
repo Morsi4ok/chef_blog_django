@@ -1,0 +1,32 @@
+{% load menu_tags social_tags %}
+
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+    <div class="humberger__menu__logo">
+        <a href="/"><img src="static/img/humberger/humberger-logo.png" alt=""></a>
+    </div>
+    <nav class="humberger__menu__nav mobile-menu">
+        <ul>
+            <li><a href="/">Главная</a></li>
+            {% get_categories %}
+            <li><a href="{% url 'about' %}">Обо мне</a></li>
+            <li><a href="{% url 'contact' %}">Контакты</a></li>
+        </ul>
+    </nav>
+    <div id="mobile-menu-wrap"></div>
+
+    <div class="humberger__menu__about">
+        <div class="humberger__menu__title sidebar__item__title">
+            <h6>Обо мне</h6>
+        </div>
+        {% get_about as about %}
+        <img src="/static/img/categories/shef.jpeg" alt="">
+        {{ about.mini_text|safe }}
+        <div class="humberger__menu__about__social sidebar__item__follow__links">
+            {% get_social_links as social_links %}
+            {% for item in social_links %}
+                <a href="{{ item.link }}"><img src="{{ item.icon.url }}"></a>
+            {% endfor %}
+        </div>
+    </div>
+</div>

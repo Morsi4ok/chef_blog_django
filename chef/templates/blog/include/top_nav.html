@@ -1,0 +1,11 @@
+{%  load menu_tags %}
+
+<nav class="header__menu">
+    <ul>
+        <li><a href="/">Главная</a></li>
+        {% get_last_posts %} {# выводит последние 5 постов в рецептах сверху в навигации #}
+        {%  get_categories %}
+        <li><a href="{% url 'about' %}">Обо мне</a></li>
+        <li><a href="{% url 'contact' %}">Контакты</a></li>
+    </ul>
+</nav>
